@@ -1,13 +1,21 @@
 package gokettle
 
 type Kettle struct {
-	Height, Diameter float64
+	TotalHeight, EmptyHeight, Diameter string
 }
 
 func (k Kettle) TotalVolume() float64 {
-	return VolumeCylinder(Radius(k.Diameter), k.Height)
+	cylinder := Cylinder{}
+	cylinder.FromString(k.Diameter, k.TotalHeight)
+	return cylinder.Volume()
 }
 
-func (k Kettle) ContentsVolumeByEmptyHeight(height float64) float64 {
-	return k.TotalVolume() - VolumeCylinder(Radius(k.Diameter), height)
+func (k Kettle) EmptyVolume() float64 {
+	cylinder := Cylinder{}
+	cylinder.FromString(k.Diameter, k.EmptyHeight)
+	return cylinder.Volume()
+}
+
+func (k Kettle) FilledVolume() float64 {
+	return k.TotalVolume() - k.EmptyVolume()
 }
