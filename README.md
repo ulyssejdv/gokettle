@@ -2,10 +2,10 @@
 
 > A little app to caculate the volume inside a kettle.
 
-## Usage
+## Run
 
 ```bash
-go run . <kettle full height> <kettle diameter> <empty height from the top>
+go run cmd/gokettle/main.go <kettle full height> <kettle diameter> <empty height from the top>
 ```
 
 ## TODO

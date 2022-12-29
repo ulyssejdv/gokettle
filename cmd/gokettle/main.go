@@ -4,31 +4,9 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+
+	gokettle "github.com/ulyssejdv/gokettle/pkg"
 )
-
-const PI = 3.14159265359
-
-// Kettle
-type Kettle struct {
-	Height, Diameter float64
-}
-
-func (k Kettle) TotalVolume() float64 {
-	return VolumeCylinder(Radius(k.Diameter), k.Height)
-}
-
-func (k Kettle) ContentsVolumeByEmptyHeight(height float64) float64 {
-	return k.TotalVolume() - VolumeCylinder(Radius(k.Diameter), height)
-}
-
-// Math functions
-func VolumeCylinder(radius float64, height float64) float64 {
-	return (PI * (radius * radius) * height) / 1000
-}
-
-func Radius(diameter float64) float64 {
-	return diameter / 2.0
-}
 
 func main() {
 	fmt.Println("Thank's to use the kettle volume calculator")
@@ -47,7 +25,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	kettle := Kettle{Height: kettleHeight, Diameter: kettleDiameter}
+	kettle := gokettle.Kettle{Height: kettleHeight, Diameter: kettleDiameter}
 
 	result := kettle.ContentsVolumeByEmptyHeight(emptyHeight)
 
