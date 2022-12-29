@@ -5,7 +5,7 @@ import (
 	"os"
 	"strconv"
 
-	gokettle "github.com/ulyssejdv/gokettle/pkg"
+	gokettle "github.com/ulyssejdv/gokettle/internal"
 )
 
 func main() {
