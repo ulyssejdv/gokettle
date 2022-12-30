@@ -1,30 +1,29 @@
 package gokettle
 
 import (
+	"log"
 	"math"
 	"strconv"
 )
 
 type Cylinder struct {
-	diameter float64
-	height   float64
+	diameter, height float64
 }
 
-func (c *Cylinder) FromString(d string, h string) {
+func CylinderFromString(d string, h string) Cylinder {
+	diameter, errDiameter := strconv.ParseFloat(d, 64)
+	height, errHeight := strconv.ParseFloat(h, 64)
 
-	if r, e := strconv.ParseFloat(d, 64); e == nil {
-		c.diameter = r
+	if errDiameter != nil || errHeight != nil {
+		log.Fatal("Can't convert string to float during cylinder creation.")
 	}
-
-	if r, e := strconv.ParseFloat(h, 64); e == nil {
-		c.height = r
-	}
+	return Cylinder{diameter: diameter, height: height}
 }
 
 func (c Cylinder) Volume() float64 {
-	return (math.Pi * (c.Radius() * c.Radius()) * c.height) / 1000
+	return (math.Pi * (c.Radius() * c.Radius()) * c.height) / 1000.
 }
 
 func (c Cylinder) Radius() float64 {
-	return c.diameter / 2.0
+	return c.diameter / 2.
 }

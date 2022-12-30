@@ -5,14 +5,12 @@ type Kettle struct {
 }
 
 func (k Kettle) TotalVolume() float64 {
-	cylinder := Cylinder{}
-	cylinder.FromString(k.Diameter, k.TotalHeight)
+	cylinder := CylinderFromString(k.Diameter, k.TotalHeight)
 	return cylinder.Volume()
 }
 
 func (k Kettle) EmptyVolume() float64 {
-	cylinder := Cylinder{}
-	cylinder.FromString(k.Diameter, k.EmptyHeight)
+	cylinder := CylinderFromString(k.Diameter, k.EmptyHeight)
 	return cylinder.Volume()
 }
 

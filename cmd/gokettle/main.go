@@ -15,14 +15,15 @@ func main() {
 		os.Exit(1)
 	}
 
+	run(os.Args[1], os.Args[2], os.Args[3])
+}
+
+func run(totalHeight string, diamter string, emptyHeight string) {
 	kettle := gokettle.Kettle{
-		TotalHeight: os.Args[1],
-		Diameter:    os.Args[2],
-		EmptyHeight: os.Args[3],
+		TotalHeight: totalHeight,
+		Diameter:    diamter,
+		EmptyHeight: emptyHeight,
 	}
-
-	result := kettle.FilledVolume()
-	resultString := fmt.Sprintf("%f", result)
-
-	fmt.Println("Volume in the kettle : " + resultString)
+	filledVolume := kettle.FilledVolume()
+	fmt.Printf("Volume in the kettle : %.2f\n", filledVolume)
 }
