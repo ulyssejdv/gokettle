@@ -10,7 +10,7 @@ go run cmd/gokettle/main.go <full height in cm> <diameter in cm> <empty height f
 
 ## TODO
 
-- [] Unit test
+- [x] Unit test
 - [] Separate in files
 - [] APIfication
 - [] Dockerification
