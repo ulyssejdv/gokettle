@@ -5,7 +5,7 @@
 ## Run
 
 ```bash
-go run cmd/gokettle/main.go <kettle full height> <kettle diameter> <empty height from the top>
+go run cmd/gokettle/main.go <full height in cm> <diameter in cm> <empty height from the top cm>
 ```
 
 ## TODO

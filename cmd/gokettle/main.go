@@ -11,7 +11,7 @@ func main() {
 	fmt.Println("Thank's to use the kettle volume calculator")
 
 	if len(os.Args) != 4 {
-		fmt.Println("Usage : gokettle <kettle height> <kettle diameter> <empty height>")
+		fmt.Println("Usage : gokettle <height> <diameter> <empty height>")
 		os.Exit(1)
 	}
 
